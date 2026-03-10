@@ -1,0 +1,229 @@
+/* UI Enhancement Stylesheet - Smoother animations & prettier visuals */
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better global transitions */
+*, *::before, *::after {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Smoother page transitions */
+#root > div {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced bottom navigation bar */
+nav.safe-bottom {
+  background: rgba(15, 17, 23, 0.92) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+  padding-bottom: env(safe-area-inset-bottom, 8px) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smoother nav button interactions */
+nav button {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative;
+}
+
+nav button:active {
+  transform: scale(0.92);
+}
+
+/* Enhanced card hover effects */
+[class*="rounded-xl"], [class*="rounded-2xl"], [class*="rounded-3xl"] {
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.25s ease !important;
+}
+
+/* Better scrollbar styling */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Smoother modal/dialog animations */
+[role="dialog"], [data-state="open"] {
+  animation: modalIn 0.25s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Better backdrop blur for modals */
+[data-state="open"] + div,
+.fixed.inset-0[style*="opacity"] {
+  backdrop-filter: blur(8px) saturate(150%);
+  -webkit-backdrop-filter: blur(8px) saturate(150%);
+}
+
+/* Enhanced timetable event blocks */
+[style*="background-color"][class*="rounded"] {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+[style*="background-color"][class*="rounded"]:active {
+  transform: scale(0.98);
+}
+
+/* Smoother loading spinner */
+.animate-spin {
+  animation: spin 0.8s linear infinite !important;
+}
+
+/* Better text rendering */
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Enhanced FAB (floating action button) */
+button[class*="rounded-full"][class*="bg-primary"] {
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4) !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+button[class*="rounded-full"][class*="bg-primary"]:hover {
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5) !important;
+  transform: scale(1.05);
+}
+
+button[class*="rounded-full"][class*="bg-primary"]:active {
+  transform: scale(0.95);
+}
+
+/* Smoother input focus states */
+input, textarea, select {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.3) !important;
+}
+
+/* Better toggle/switch animations */
+[role="switch"] {
+  transition: background-color 0.25s ease !important;
+}
+
+[role="switch"] > span {
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Enhanced header area */
+header, [class*="border-b"][class*="border-white"] {
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+}
+
+/* Subtle hover glow effect for interactive elements */
+button:not(nav button):hover {
+  filter: brightness(1.05);
+}
+
+/* Better progress bar animations */
+[role="progressbar"] > div {
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Smooth list item transitions */
+[class*="space-y"] > * {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Enhanced tab active indicator */
+[class*="bg-primary/20"], [class*="bg-primary/15"] {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Better tooltip/popover animations */
+[data-side] {
+  animation: popIn 0.15s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Subtle pulse animation for current time indicator */
+@keyframes timePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+[class*="bg-red"][class*="rounded-full"][class*="w-2"],
+[class*="bg-red"][class*="rounded-full"][class*="w-3"] {
+  animation: timePulse 2s ease-in-out infinite;
+}
+
+/* Smoother accordion/collapsible animations */
+[data-state="open"] > [class*="max-h"],
+[data-state="closed"] > [class*="max-h"] {
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s ease !important;
+}
+
+/* Better glass morphism effects */
+[class*="backdrop-blur"] {
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+}
+
+/* Enhanced selection color */
+::selection {
+  background: rgba(99, 102, 241, 0.3);
+  color: white;
+}
+
+/* Smoother opacity transitions for hover states */
+[class*="hover:opacity"], [class*="hover:text-white"] {
+  transition: opacity 0.2s ease, color 0.2s ease !important;
+}
